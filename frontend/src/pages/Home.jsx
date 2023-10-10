@@ -5,10 +5,13 @@ import { Link } from 'react-router-dom';
 import { AiOutlineEdit } from 'react-icons/ai';
 import { BsInfoCircle } from 'react-icons/bs';
 import { MdOutlineAddBox, MdOutlineDelete } from 'react-icons/md';
-
+import { BiShow } from 'react-icons/bi';
+import BookModal from '../components/BookModal';
 const Home = () => {
     const [books, setBooks] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [showModal, setShowModal] = useState(false);
+    console.log('home');
 
     useEffect(() => {
         setLoading(true);
@@ -55,6 +58,7 @@ const Home = () => {
                                         <td>{book.publishYear}</td>
                                         <td>
                                             <div>
+                                                <BiShow onClick={() => setShowModal(true)} />
                                                 <Link to={`/books/details/${book._id}`}>
                                                     <BsInfoCircle />
                                                 </Link>
@@ -65,6 +69,11 @@ const Home = () => {
                                                     <MdOutlineAddBox />
                                                 </Link>
                                             </div>
+                                            {
+                                                showModal && (
+                                                    <BookModal book={book} onClose={() => setShowModal(false)} />
+                                                )
+                                            }
                                         </td>
                                     </tr>
                                 ))
@@ -77,4 +86,4 @@ const Home = () => {
     )
 }
 
-export default Home
+export default Home;
