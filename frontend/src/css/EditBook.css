@@ -1,0 +1,38 @@
+.edit-form {
+    width: 90%;
+    max-width: 500px;
+    background-color: #FF7878;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-form label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.edit-form input {
+    border: 2px solid black;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.edit-btn {
+    background-color: #ffff;
+    border: 2px solid #222222;
+    border-radius: 5px;
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    font-weight: 600;
+}
+
+.edit-btn:hover {
+    cursor: pointer;
+    background-color: #333333;
+    color: #ffff;
+    letter-spacing: 1px;
+}

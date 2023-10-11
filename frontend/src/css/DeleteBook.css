@@ -1,0 +1,26 @@
+.delete-page {
+    border-radius: 5px;
+    background-color: #F0E4D7;
+    margin: 20px;
+    padding: 20px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.delete-btn {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.delete-btn button {
+    border: none;
+    border-radius: 2px;
+    background-color: #FF7171;
+    padding: 10px;
+    font-size: 12px;
+    font-weight: 600;
+}

@@ -1,0 +1,17 @@
+.back-btn {
+    height: 50px;
+    margin: 10px 0 20px 0;
+}
+
+.back-btn .link {
+    height: 50px;
+    margin: 10px;
+}
+
+.back-btn .link:hover {
+    cursor: pointer;
+}
+
+.back-btn .link img {
+    height: 100%;
+}

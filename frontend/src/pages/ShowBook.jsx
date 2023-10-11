@@ -3,6 +3,10 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import BackButton from '../components/BackButton';
 import Loading from '../components/Loading';
+import NavBar from '../components/NavBar';
+import Footer from '../components/Footer';
+
+import "../css/ShowBook.css";
 
 const ShowBook = () => {
     const [books, setBooks] = useState([]);
@@ -24,42 +28,49 @@ const ShowBook = () => {
     }, []);
 
     return (
-        <div>
-            <BackButton />
-            <h3>Show Book</h3>
-            {
-                loading ? (
-                    <Loading />
-                ) : (
-                    <div>
-                        <div>
-                            <span>ID</span>
-                            <span>{books._id}</span>
+        <>
+            <NavBar pagename={"Show Book"} />
+            <div className='main-area' >
+
+                <BackButton />
+                {
+                    loading ? (
+                        <Loading />
+                    ) : (
+                            <div className='box' >
+                                <div className='book-details'>
+                                    <div className='detail-row' >
+                                        <div className='book-label' >ID</div>
+                                        <div>{books._id}</div>
+                                    </div>
+                                    <div className='detail-row' >
+                                        <div className='book-label' >Title</div>
+                                        <div>{books.title}</div>
+                                    </div>
+                                    <div className='detail-row' >
+                                        <div className='book-label' >Author</div>
+                                        <div>{books.author}</div>
+                                    </div>
+                                    <div className='detail-row' >
+                                        <div className='book-label' >Year</div>
+                                        <div>{books.publishYear}</div>
+                                    </div>
+                                    <div className='detail-row' >
+                                        <div className='book-label' >Create Time</div>
+                                        <div>{new Date(books.createdAt).toString()}</div>
+                                    </div>
+                                    <div className='detail-row' >
+                                        <div className='book-label' >Update Time</div>
+                                        <div>{new Date(books.updatedAt).toString()}</div>
+                                    </div>
                         </div>
-                        <div>
-                            <span>Title</span>
-                            <span>{books.title}</span>
                         </div>
-                        <div>
-                            <span>Author</span>
-                            <span>{books.author}</span>
-                        </div>
-                        <div>
-                            <span>Year</span>
-                            <span>{books.publishYear}</span>
-                        </div>
-                        <div>
-                            <span>Create Time</span>
-                            <span>{new Date(books.createdAt).toString()}</span>
-                        </div>
-                        <div>
-                            <span>Update Time</span>
-                            <span>{new Date(books.updatedAt).toString()}</span>
-                        </div>
-                    </div>
-                )
-            }
-        </div>
+                    )
+                }
+
+            </div>
+            <Footer />
+        </>
     )
 }
 

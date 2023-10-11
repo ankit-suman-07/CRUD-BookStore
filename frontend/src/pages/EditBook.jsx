@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import BackButton from '../components/BackButton';
 import Loading from '../components/Loading';
+import NavBar from '../components/NavBar';
+import Footer from '../components/Footer';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
+
+import "../css/EditBook.css";
 
 const EditBook = () => {
     const [title, setTitle] = useState('');
@@ -51,15 +55,16 @@ const EditBook = () => {
     };
 
     return (
-        <div>
-            <BackButton />
-            <h3>Edit Book</h3>
+        <>
+            <NavBar pagename={"Edit Book"} />
+            <div className='main-area' >
+                <BackButton />
             {
                 loading ? (
                     <Loading />
-                ) : (
-                    <div>
-                        <div>
+                    ) : (
+                            <div className='box' >
+                                <div className='edit-form' >
                             <label>Title</label>
                             <input
                                 type='text'
@@ -77,15 +82,18 @@ const EditBook = () => {
                                 type='number'
                                 value={publishYear}
                                 onChange={(e) => setPublishYear(e.target.value)}
-                            />
-                        </div>
-                        <button onClick={handleEditBook} >
-                            Save
-                        </button>
-                    </div>
+                                    />
+                                    <button onClick={handleEditBook} className='edit-btn' >
+                                        Save Changes
+                                    </button>
+                                </div>
+
+                            </div>
                 )
             }
-        </div>
+            </div >
+            <Footer />
+        </>
     )
 }
 

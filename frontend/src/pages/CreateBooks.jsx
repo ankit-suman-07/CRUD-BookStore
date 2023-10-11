@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import BackButton from '../components/BackButton';
 import Loading from '../components/Loading';
+import NavBar from '../components/NavBar';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useSnackbar } from 'notistack';
+import "../css/EditBook.css";
 
 const CreateBooks = () => {
     const [title, setTitle] = useState('');
@@ -37,15 +39,16 @@ const CreateBooks = () => {
     };
 
     return (
-        <div>
-            <BackButton />
-            <h3>Create Book</h3>
-            {
+        <>
+            <NavBar pagename={"Create Book"} />
+            <div className='main-area' >
+                <BackButton />
+                {
                 loading ? (
                     <Loading />
                 ) : (
-                    <div>
-                        <div>
+                            <div className='box' >
+                                <div className='edit-form' >
                             <label>Title</label>
                             <input
                                 type='text'
@@ -64,14 +67,16 @@ const CreateBooks = () => {
                                 value={publishYear}
                                 onChange={(e) => setPublishYear(e.target.value)}
                             />
-                        </div>
-                        <button onClick={handleSaveBook} >
-                            Save
-                        </button>
+
+                                    <button onClick={handleSaveBook} className='edit-btn' >
+                                        Save
+                                    </button>
+                                </div>
                     </div>
                 )
             }
-        </div>
+            </div>
+        </>
     )
 }
 
