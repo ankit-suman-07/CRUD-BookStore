@@ -4,11 +4,6 @@ import Loading from '../components/Loading';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
-import { AiOutlineEdit } from 'react-icons/ai';
-import { BsInfoCircle } from 'react-icons/bs';
-import { MdOutlineAddBox, MdOutlineDelete } from 'react-icons/md';
-import { BiShow } from 'react-icons/bi';
-import BookModal from '../components/BookModal';
 import BookCard from '../components/BookCard';
 import BookList from '../components/BookList';
 import "../css/Home.css";
@@ -20,7 +15,6 @@ import List from "../assets/list.png";
 const Home = () => {
     const [books, setBooks] = useState([]);
     const [loading, setLoading] = useState(false);
-    const [showModal, setShowModal] = useState(false);
     const [view, setView] = useState(true);
     console.log('home');
 
@@ -55,16 +49,15 @@ const Home = () => {
                 <div className='header' >
 
                     <Link to='/books/create' className='link' >
-                        {/* <MdOutlineAddBox /> */}
-                        <img src={Add} />
+                        <img src={Add} alt='image' />
                     </Link>
                     <span>Books List</span>
                     <div className='view-btn' >
                         <button onClick={handleViewCard} >
-                            <img src={Card} />
+                            <img src={Card} alt='image' />
                         </button>
                         <button onClick={handleViewList} >
-                            <img src={List} />
+                            <img src={List} alt='image' />
                         </button>
                     </div>
                 </div>

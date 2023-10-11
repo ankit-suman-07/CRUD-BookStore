@@ -2,11 +2,6 @@ import React, { useState } from 'react';
 import "../css/Home.css";
 import { Link } from 'react-router-dom';
 import BookModal from './BookModal';
-import { AiOutlineEdit } from 'react-icons/ai';
-import { BsInfoCircle } from 'react-icons/bs';
-import { MdOutlineAddBox, MdOutlineDelete } from 'react-icons/md';
-import { BiShow } from 'react-icons/bi';
-
 import ModalIcon from "../assets/modal.png";
 import ShowIcon from "../assets/show.png";
 import EditIcon from "../assets/edit.png";
@@ -23,16 +18,16 @@ const BookList = ({ book, index }) => {
             <span>
                 <div className='operations' >
                     <button onClick={() => setShowModal(true)} >
-                        <img src={ModalIcon} />
+                        <img src={ModalIcon} alt='image' />
                     </button>
                     <Link to={`/books/details/${book._id}`} className='link' >
-                        <img src={ShowIcon} />
+                        <img src={ShowIcon} alt='image' />
                     </Link>
                     <Link to={`/books/edit/${book._id}`} className='link' >
-                        <img src={EditIcon} />
+                        <img src={EditIcon} alt='image' />
                     </Link>
                     <Link to={`/books/delete/${book._id}`} className='link' >
-                        <img src={DeleteIcon} />
+                        <img src={DeleteIcon} alt='image' />
                     </Link>
                 </div>
             </span>

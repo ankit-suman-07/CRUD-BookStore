@@ -1,5 +1,4 @@
 import React from 'react';
-import { AiOutlineClose } from 'react-icons/ai';
 import CloseIcon from "../assets/close.png";
 import "../css/BookModal.css";
 
@@ -11,7 +10,7 @@ const BookModal = ({ book, onClose }) => {
                 <div className='modal-top' >
 
                     <div onClick={(event) => event.stopPropagation()} >
-                        <img src={CloseIcon} onClick={onClose} />
+                        <img src={CloseIcon} onClick={onClose} alt='image' />
                     </div>
                 </div>
 

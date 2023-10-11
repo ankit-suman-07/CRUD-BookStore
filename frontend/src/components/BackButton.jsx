@@ -1,5 +1,4 @@
 import React from 'react';
-import { BsArrowLeft } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import "../css/BackButton.css";
 
@@ -9,7 +8,7 @@ const BackButton = ({ destination = '/' }) => {
     return (
         <div className='back-btn'>
             <Link to={destination} className='link' >
-                <img src={BackIcon} />
+                <img src={BackIcon} alt='image' />
             </Link>
         </div>
     )
