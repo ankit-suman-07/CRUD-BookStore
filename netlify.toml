@@ -1,4 +1,4 @@
 [build]
-command = "node_modules/.bin/vite build"
+command = "vite build"
 publish = "frontend/dist"
 functions = "backend/build"
