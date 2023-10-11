@@ -1,4 +1,4 @@
 [build]
-command = "npm run build"  # or whatever command you use to start your Node.js server
+command = "vite build"
 functions = "backend/build"
-publish = "frontend/build"  # assuming your frontend build output is in this directory
+publish = "frontend/dist"
