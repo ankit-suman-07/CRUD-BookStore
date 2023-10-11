@@ -1,0 +1,32 @@
+.navbar {
+    background-color: #374259;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #ffff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 25px;
+    font-weight: 600;
+    margin-left: 20px;
+}
+
+.page {
+    /* border: 2px solid red; */
+    background-color: #5C8984;
+    height: 100%;
+    color: #ffff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.page span {
+    margin: 20px;
+}

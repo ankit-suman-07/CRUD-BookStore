@@ -1,0 +1,55 @@
+.card {
+    background-color: #FFFEC4;
+    height: 150px;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cart-title {
+    background-color: #FAAB78;
+    color: #ffff;
+    height: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-body {
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-operations {
+    background-color: #ffff;
+    height: 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.card-operations button {
+    height: 100%;
+    border: none;
+    background-color: #ffff;
+}
+
+.card-operations button img {
+    height: 70%;
+}
+
+.card-operations .link {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-operations .link img {
+    height: 70%;
+}

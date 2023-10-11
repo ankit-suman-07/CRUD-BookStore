@@ -1,17 +1,36 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Loading from '../components/Loading';
+import NavBar from '../components/NavBar';
+import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
 import { AiOutlineEdit } from 'react-icons/ai';
 import { BsInfoCircle } from 'react-icons/bs';
 import { MdOutlineAddBox, MdOutlineDelete } from 'react-icons/md';
 import { BiShow } from 'react-icons/bi';
 import BookModal from '../components/BookModal';
+import BookCard from '../components/BookCard';
+import BookList from '../components/BookList';
+import "../css/Home.css";
+
+import Add from "../assets/add.png";
+import Card from "../assets/card.png";
+import List from "../assets/list.png";
+
 const Home = () => {
     const [books, setBooks] = useState([]);
     const [loading, setLoading] = useState(false);
     const [showModal, setShowModal] = useState(false);
+    const [view, setView] = useState(true);
     console.log('home');
+
+    const handleViewList = () => {
+        setView(true);
+    }
+
+    const handleViewCard = () => {
+        setView(false);
+    }
 
     useEffect(() => {
         setLoading(true);
@@ -28,60 +47,71 @@ const Home = () => {
     }, []);
     return (
         <div className='App' >
-            <div className='header' >
-                <h3>Books List</h3>
-                <Link to='/books/create' >
-                    <MdOutlineAddBox />
-                </Link>
-            </div>
+            <nav>
+                <NavBar pagename={"Home"} />
+            </nav>
+            <div className='main-area' >
+
+                <div className='header' >
+
+                    <Link to='/books/create' className='link' >
+                        {/* <MdOutlineAddBox /> */}
+                        <img src={Add} />
+                    </Link>
+                    <span>Books List</span>
+                    <div className='view-btn' >
+                        <button onClick={handleViewCard} >
+                            <img src={Card} />
+                        </button>
+                        <button onClick={handleViewList} >
+                            <img src={List} />
+                        </button>
+                    </div>
+                </div>
             {
                 loading ? (
                     <Loading />
                 ) : (
-                    <table>
-                        <thead >
-                            <tr>
-                                <th>No.</th>
-                                <th>Title</th>
-                                <th>Author</th>
-                                <th>Year</th>
-                                <th>Operation</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                books.map((book, index) => (
-                                    <tr key={book._id} >
-                                        <td>{index + 1}</td>
-                                        <td>{book.title}</td>
-                                        <td>{book.author}</td>
-                                        <td>{book.publishYear}</td>
-                                        <td>
-                                            <div>
-                                                <BiShow onClick={() => setShowModal(true)} />
-                                                <Link to={`/books/details/${book._id}`}>
-                                                    <BsInfoCircle />
-                                                </Link>
-                                                <Link to={`/books/edit/${book._id}`}>
-                                                    <AiOutlineEdit />
-                                                </Link>
-                                                <Link to={`/books/delete/${book._id}`}>
-                                                    <MdOutlineAddBox />
-                                                </Link>
-                                            </div>
+                            view ? (
+                                <div className='content'>
+                                    <div className='table-head' >
+                                        <span>No.</span>
+                                        <span>Title</span>
+                                        <span>Author</span>
+                                        <span>Year</span>
+                                        <span>Operations</span>
+                                    </div>
+
+                                    {
+                                        books.map((book, index) => (
+                                            <BookList key={book._id} book={book} index={index} />
+
+                                        ))
+                                    }
+                                </div>
+
+                            ) : (
+
+                                <div className='content-card'>
                                             {
-                                                showModal && (
-                                                    <BookModal book={book} onClose={() => setShowModal(false)} />
+
+                                            books.map((book, index) => (
+                                                <BookCard book={book} index={index} />
                                                 )
+                                            )
+
+
                                             }
-                                        </td>
-                                    </tr>
-                                ))
-                            }
-                        </tbody>
-                    </table>
+                                </div>
+
+                            )
+
                 )
-            }
+                }
+            </div>
+            <footer>
+                <Footer />
+            </footer>
         </div>
     )
 }

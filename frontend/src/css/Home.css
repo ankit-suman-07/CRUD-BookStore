@@ -1,0 +1,146 @@
+.main-area {
+    min-height: calc(100vh - 50px);
+}
+
+.header {
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header span {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.header .link {
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header .link:hover {
+    cursor: pointer;
+}
+
+.header .link img {
+    border: 1px solid #222222;
+    height: 60%;
+}
+
+.view-btn {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.view-btn button {
+    height: 60%;
+    background-color: #ffff;
+    border: 1px solid #222222;
+    margin: 5px;
+}
+
+.view-btn button:hover {
+    cursor: pointer;
+}
+
+.view-btn button img {
+    height: 100%;
+}
+
+.content {
+
+    margin: 10px;
+}
+
+.content-card {
+    margin: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+}
+
+.table-head,
+.table-row {
+    display: grid;
+    grid-template-columns: 1.5fr 4fr 4fr 2fr 3fr;
+    grid-gap: 2px;
+    margin: 2px 0 2px 0;
+}
+
+.table-head {
+    font-size: 12px;
+    font-weight: 600;
+    height: 35px;
+    color: #ffff;
+}
+
+.table-row {
+    height: 30px;
+    font-size: 12px;
+}
+
+.table-row span,
+.table-head span {
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.table-head span {
+    background-color: #5C8984;
+}
+
+.table-row span {
+    background-color: #BA94D1;
+}
+
+.operations {
+    height: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.operations button {
+    height: 100%;
+    border: none;
+    background-color: #BA94D1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.operations button:hover {
+    cursor: pointer;
+}
+
+.operations button img {
+    height: 70%;
+    padding: 1px;
+    background-color: #ffff;
+    border-radius: 2px;
+}
+
+.operations .link {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.operations .link img {
+    background-color: #ffff;
+    border-radius: 2px;
+    padding: 1px;
+    height: 70%;
+}
