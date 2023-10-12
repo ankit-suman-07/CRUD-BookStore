@@ -1,4 +1,0 @@
-[build]
-command = "vite build"
-publish = "frontend/dist"
-functions = "backend/build"

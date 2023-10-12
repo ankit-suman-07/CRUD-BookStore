@@ -89,7 +89,7 @@ const Home = () => {
                                             {
 
                                             books.map((book, index) => (
-                                                <BookCard book={book} index={index} />
+                                                <BookCard key={book._id} book={book} index={index} />
                                                 )
                                             )
 

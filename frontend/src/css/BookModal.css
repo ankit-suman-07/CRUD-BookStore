@@ -1,5 +1,4 @@
 .modal-box {
-    border: 2px solid black;
 
     position: fixed;
     width: calc(100vw - 20px);

@@ -62,7 +62,7 @@
 .content-card {
     margin: 10px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 10px;
 }
 
@@ -96,11 +96,11 @@
 }
 
 .table-head span {
-    background-color: #5C8984;
+    background-color: #FAAB78;
 }
 
 .table-row span {
-    background-color: #BA94D1;
+    background-color: #FFFEC4;
 }
 
 .operations {
@@ -114,7 +114,7 @@
 .operations button {
     height: 100%;
     border: none;
-    background-color: #BA94D1;
+    background-color: #FFFEC4;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -143,4 +143,15 @@
     border-radius: 2px;
     padding: 1px;
     height: 70%;
+}
+@media screen and (max-width: 900px) {
+    .content-card {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .content-card {
+        grid-template-columns: 1fr 1fr;
+    }
 }
