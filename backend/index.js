@@ -1,7 +1,6 @@
 import express from "express";
 import { PORT, mongoDBURL } from "./config.js";
 import mongoose from "mongoose";
-import { Book } from "./models/bookModel.js";
 import booksRoute from './routes/booksRoute.js'
 import cors from 'cors';
 
@@ -12,16 +11,16 @@ app.use(express.json());
 
 // Middleware to handle CORS policy
 // Option 1: Allow All Origins with default of cors(*)
-//app.use(cors());
+app.use(cors());
 
 // Option 2: Allow Custom Origins
-app.use(
-    cors({
-        origin: 'http://localhost:3000',
-        methods: ['GET', 'POST', 'PUT', 'DELETE'],
-        allowedHeaders: ['Content-Type'],
-    })
-);
+// app.use(
+//     cors({
+//         origin: 'http://localhost:3000',
+//         methods: ['GET', 'POST', 'PUT', 'DELETE'],
+//         allowedHeaders: ['Content-Type'],
+//     })
+// );
 
 app.get('/', (request, response) => {
     console.log("request");
@@ -31,14 +30,12 @@ app.get('/', (request, response) => {
 app.use('/books', booksRoute);
 
 mongoose
-    .connect(mongoDBURL || "mongodb+srv://ankitsuman07:Silenced%408697@bookstore.cm8rbur.mongodb.net/books-collection?retryWrites=true&w=majority", {
+    .connect(mongoDBURL, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
-        useCreateIndex: true,
-        useFindAndModify: false
     })
     .then(() => {
-        console.log("App connected to database");
+        console.log("App connected to database", mongoDBURL);
         app.listen(PORT, () => {
             console.log("Prt No. -> ", PORT);
         });
