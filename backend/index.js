@@ -12,16 +12,16 @@ app.use(express.json());
 
 // Middleware to handle CORS policy
 // Option 1: Allow All Origins with default of cors(*)
-app.use(cors());
+//app.use(cors());
 
 // Option 2: Allow Custom Origins
-// app.use(
-//     cors({
-//         origin: 'http://localhost:3000',
-//         methods: ['GET', 'POST', 'PUT', 'DELETE'],
-//         allowedHeaders: ['Content-Type'],
-//     })
-// );
+app.use(
+    cors({
+        origin: 'http://localhost:3000',
+        methods: ['GET', 'POST', 'PUT', 'DELETE'],
+        allowedHeaders: ['Content-Type'],
+    })
+);
 
 app.get('/', (request, response) => {
     console.log("request");
@@ -34,6 +34,8 @@ mongoose
     .connect(mongoDBURL, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
+        useCreateIndex: true,
+        useFindAndModify: false
     })
     .then(() => {
         console.log("App connected to database");
