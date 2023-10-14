@@ -6,7 +6,11 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "build": "npm run build"
+  },
+  "engines": {
+    "node": ">=14.20.1"
   },
   "keywords": [],
   "author": "",
